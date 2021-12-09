@@ -14,58 +14,69 @@
     <title>Bible Verses ✝️</title>
   </head>
   <body>
-    <aside>
-      <img src="/cross.svg" alt="cross" />
-      <div>
-        <div class="controls">
-          <button class="new">New Random Verse</button>
+    <div class="wrapper">
+      <aside>
+        <img src="/cross.svg" alt="cross" />
+        <div>
+          <div class="controls">
+            <button class="new">New Random Verse</button>
+          </div>
+          <div class="controls">
+            <button class="previous">👈 Previous Line</button>
+            <button class="next">Next Line 👉</button>
+          </div>
         </div>
-        <div class="controls">
-          <button class="previous">👈 Previous Line</button>
-          <button class="next">Next Line 👉</button>
+      </aside>
+      <main>
+        <h1>📖 A Random Bible Verse</h1>
+        <div class="text">
+          <h2 class="chapter">🙏...</h2>
+          <div class="verse">
+            <p class="verse">🙏...</p>
+          </div>
         </div>
-      </div>
-    </aside>
-    <main>
-      <h1>A Random Bible Verse</h1>
-      <div class="text">
-        <h2 class="chapter">🙏...</h2>
-        <div class="verse">
-          <p class="verse">🙏...</p>
-        </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 
   <script type="module" src="/src/main.ts"></script>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
+      width: 100vw;
+      margin: 0;
+      background-color: rgb(229, 247, 222);
+    }
+    .wrapper {
+      background-color: rgb(240, 217, 226);
+
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
       min-height: 100vh;
-      align-items: start;
       max-width: 800px;
+      align-items: start;
       margin: auto;
-      padding: 1rem;
-      background-color: antiquewhite;
+      padding: 0 3rem;
+      border-left: 2px dashed darkslategray;
+      border-right: 2px dashed darkslategray;
     }
     main {
-      min-height: 100vh;
+      min-height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      grid-gap: 2rem;
-      grid-template-rows: auto auto;
     }
     aside {
       display: flex;
       flex-direction: column;
       align-content: center;
       justify-content: center;
-      height: 100vh;
+      height: 100%;
     }
     h1,
     h2,
@@ -81,7 +92,7 @@
       border-radius: 0px;
       font-size: 1rem;
       border: 2px solid black;
-      background-color: moccasin;
+      background-color: rgb(208, 243, 192);
     }
     .verse {
       transition: all 0.5s ease;
@@ -104,6 +115,7 @@
     }
     img {
       opacity: 85%;
+      width: 100%;
     }
     p,
     h2 {
@@ -118,6 +130,24 @@
       to {
         transform: scaleY(1);
         opacity: 1;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        border: none;
+      }
+      img {
+        height: 20%;
+      }
+      aside {
+        height: 30vh;
+      }
+      main {
+        justify-content: start;
+        align-items: start;
       }
     }
   </style>

@@ -5,16 +5,120 @@
     <meta description="A bible verse, generated randomly." />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
     <title>Bible Verses ✝️</title>
   </head>
   <body>
-    <h1>Verse o' the Day</h1>
-    <h2 class="chapter">🙏...</h2>
-    <p class="verse">🙏...</p>
-    <button>👈 Context</button>
-    <button>Context 👉</button>
-    <button class="new">New Verse</button>
+    <aside>
+      <img src="/cross.svg" alt="cross" />
+      <div>
+        <div class="controls">
+          <button class="new">New Random Verse</button>
+        </div>
+        <div class="controls">
+          <button class="previous">👈 Previous Line</button>
+          <button class="next">Next Line 👉</button>
+        </div>
+      </div>
+    </aside>
+    <main>
+      <h1>A Random Bible Verse</h1>
+      <div class="text">
+        <h2 class="chapter">🙏...</h2>
+        <div class="verse">
+          <p class="verse">🙏...</p>
+        </div>
+      </div>
+    </main>
   </body>
 
   <script type="module" src="/src/main.ts"></script>
+
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      min-height: 100vh;
+      align-items: start;
+      max-width: 800px;
+      margin: auto;
+      padding: 1rem;
+      background-color: antiquewhite;
+    }
+    main {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      grid-gap: 2rem;
+      grid-template-rows: auto auto;
+    }
+    aside {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1,
+    h2,
+    p,
+    button {
+      /* font-family: "Abril Fatface", cursive; */
+      font-family: "Roboto Slab", serif;
+      color: rgb(37, 41, 41);
+    }
+
+    button {
+      padding: 1rem;
+      border-radius: 0px;
+      font-size: 1rem;
+      border: 2px solid black;
+      background-color: moccasin;
+    }
+    .verse {
+      transition: all 0.5s ease;
+    }
+    .controls {
+      display: flex;
+    }
+    .controls * {
+      flex: 1;
+    }
+    .previous {
+      margin-right: 2px;
+    }
+    .next {
+      margin-left: 2px;
+    }
+    .new {
+      margin-bottom: 4px;
+      margin-top: 2rem;
+    }
+    img {
+      opacity: 85%;
+    }
+    p,
+    h2 {
+      transform-origin: 50% 0;
+      animation: append-animate 0.3s linear;
+    }
+    @keyframes append-animate {
+      from {
+        transform: scaleY(0);
+        opacity: 0;
+      }
+      to {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+  </style>
 </html>

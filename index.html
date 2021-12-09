@@ -36,6 +36,15 @@
           </div>
         </div>
       </main>
+      <footer>
+        <p>
+          <a href="https://www.aaronhubbard.dev">Aaron Hubbard Web Dev</a>
+        </p>
+        <p>
+          Built with <a href="https://vitejs.dev">Vite</a> &
+          <a href="https://www.typescriptlang.org">TS</a>
+        </p>
+      </footer>
     </div>
   </body>
 
@@ -55,6 +64,7 @@
 
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr auto;
       gap: 2rem;
       min-height: 100vh;
       max-width: 800px;
@@ -94,6 +104,15 @@
       border: 2px solid black;
       background-color: rgb(208, 243, 192);
     }
+    img {
+      opacity: 85%;
+      width: 100%;
+    }
+    footer {
+      grid-column: span 2;
+      display: flex;
+      justify-content: space-around;
+    }
     .verse {
       transition: all 0.5s ease;
     }
@@ -113,10 +132,7 @@
       margin-bottom: 4px;
       margin-top: 2rem;
     }
-    img {
-      opacity: 85%;
-      width: 100%;
-    }
+
     p,
     h2 {
       transform-origin: 50% 0;
